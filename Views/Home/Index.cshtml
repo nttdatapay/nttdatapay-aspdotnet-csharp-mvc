@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+<script src="https://pgtest.atomtech.in/staticdata/ots/js/atomcheckout.js" type="text/javascript"></script>
+<script type="text/javascript">
+     function openPay() {
+
+       // alert('openPay called');
+         var rb = @ViewBag.Status;
+const options = {
+ "atomTokenId": rb,
+"merchId": "8952",
+"custEmail": "sagar.gopale@atomtech.in",
+"custMobile": "8976286911",
+"returnUrl": "http://localhost:64247//Response"
+
+}
+
+let atom = new AtomPaynetz(options,'uat');
+    }
+</script>
+
+    <div class="col-md-4">
+        TokenId: @ViewBag.Status
+
+        <br />
+        <button id="btmpay" onclick="openPay()" >Pay</button>
+        <label id="test"></label>
+
+
+</div>
